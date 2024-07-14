@@ -1,0 +1,23 @@
+table,tr,td,th{
+    padding: 8px;
+    height: 30px;
+    width: 500px;
+    text-align: center;
+}
+input{
+    padding: 15px;
+    width: 100%;
+    margin-left: 22px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+.sign_box{
+    background-color: white;
+    width: 550px;
+    margin-left: 350px;
+    text-align: center;
+ }
+.shaping_button{
+    width: 90%;
+}
+ 

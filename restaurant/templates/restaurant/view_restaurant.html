@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+     <style>
+      .image_main{
+    height: 300px;
+    background-image: url("{% static 'images/first.png' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+   
+     </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+           <div class="space_front"></div>
+           
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'images/nav_logo.jpg' %}" alt="tasty" width="170" height="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+              
+                <div class="container-fluid">
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2 search_width" type="search" placeholder="Search for restaurant, cuisine or a dish" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                  </div>
+  
+            <!-- </ul> -->
+            <span class="navbar-text">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text_styling">
+                   
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'restaurant:logout' %}">Logout</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'restaurant:add_restaurant' %}">Add new restaurant</a>
+                  </li>
+                   
+
+                   
+                   
+
+                   
+                  <div class="space_btw"></div>
+                  </ul>
+                 
+            </span>
+
+
+          </div>
+        </div>
+      </nav>
+
+       
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+
+                <div class="card text-center">
+                     
+                    <div class="card-body">
+                      <h1 class="card-title">{{rest.restname}}</h1>
+                      <p class="card-text">{{rest.restemail}}</p>
+                      <p class="card-text">{{rest.restaddress}}<br>
+                      {{rest.restphone}}
+                      </p>
+
+                      <a href="{% url 'restaurant:add_menu' %}" class="btn btn-success">Add menu</a>
+                      <a href="{% url 'restaurant:edit_restaurant' rest.id %}" class="btn btn-success">Edit details</a>
+                      <a href="{% url 'restaurant:view_order' %}" class="btn btn-success">View orders</a>
+
+
+                     </div>
+                     
+                  </div>
+
+
+
+            </div>
+        </div>
+      </div>
+<br><br>
+      <div class="container-fluid">
+        <div class="row">
+          {% for dish in dishes %}
+               <div class="col-6">
+                <div class="card" style="width: 25rem;">
+                    <img src="{{dish.dimage.url}}" class="card-img-top" alt="..."  >
+                    <div class="card-body">
+                      <h5 class="card-title">{{dish.dname}}</h5>
+                      <p class="card-text">{{dish.ddiscription}}<br>
+                      <h6>Price: {{dish.dprice}}</h6> 
+                      </p>
+                      <a href="{% url 'restaurant:update' dish.id %}" class="btn btn-success">Update</a>
+                      <a href="{% url 'restaurant:delete_dish' dish.id %}" class="btn btn-success">Delete</a>
+
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+             </div>
+      </div>
+
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>   
+  </body>
+  </html>

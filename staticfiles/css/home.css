@@ -1,0 +1,29 @@
+.space_front{
+    width: 80px;
+  }
+  
+  .space_btw{
+    width: 40px;
+  }
+  
+  .search_width{
+    height: 50px;
+  }
+  .text_styling{
+    font-size: larger;
+  }
+  .image_main{
+    /* height: 300px; */
+    background-image: url("{% static 'images/first.png' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .hungry{
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+  
+  }
+   
